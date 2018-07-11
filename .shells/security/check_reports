@@ -1,0 +1,11 @@
+#-------------------------------------------------------------
+# check reports
+#------------------------------------------------------------
+#
+#
+dREPORTS="~/.reports"
+LYNISREPORT="${dREPORTS}/lynis-warnings.rep"
+RKHUNTERREPORT="${dREPORTS}/rkhunter-warnings.rep"
+
+if [ -f ${LYNISREPORT} ]; then cat ${LYNISREPORT}; fi
+if [ -f ${RKHUNTERREPORT} ]; then cat ${RKHUNTERREPORT}; fi

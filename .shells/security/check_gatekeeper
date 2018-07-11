@@ -1,0 +1,12 @@
+#-------------------------------------------------------------
+# Check gatekeeper/ALF
+#------------------------------------------------------------
+#
+echo -e "   Gatekeeper:"
+echo -e "         Status: ${yellow}`spctl --status` ${foreground}"
+echo -e "         kext  : ${yellow}`spctl kext-consent status` (`spctl kext-consent list 2&>/dev/null | wc -l | tr -d ' '`) ${foreground}"
+echo -e "  AppFw state: ${yellow}`/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate`${foreground}"
+echo -e "        Logging: ${yellow}`/usr/libexec/ApplicationFirewall/socketfilterfw --getloggingopt`${foreground}"
+echo -e "           Apps: ${yellow}`/usr/libexec/ApplicationFirewall/socketfilterfw --listapps | grep ALF`${foreground}"
+echo -e "        Allowed: ${red}`/usr/libexec/ApplicationFirewall/socketfilterfw --listapps | grep -c Allow`${foreground}"
+echo -e "        Blocked: ${green}`/usr/libexec/ApplicationFirewall/socketfilterfw --listapps | grep -c Block`${foreground}"

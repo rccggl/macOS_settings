@@ -1,0 +1,23 @@
+#-------------------------------------------------------------
+# Alias macOS commands
+#------------------------------------------------------------
+alias su_check="sudo softwareupdate -l"
+alias su_inst="sudo softwareupdate -ia"
+
+
+
+
+#-------------------------------------------------------------
+# One shots commands
+#------------------------------------------------------------
+#
+# sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Hei user!"
+#
+# Change the Default Backup Periods in Time Machine (s)
+# sudo defaults write /System/Library/Launch Daemons/com.apple.backupd-auto StartInterval -int 1800
+#
+# Show hidden files in finder
+# defaults write com.apple.finder AppleShowAllFiles TRUE
+#
+# Secure Erase
+# diskutil secureErase freespace 3 /Volumes/name-of-drive

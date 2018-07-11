@@ -1,0 +1,27 @@
+#-------------------------------------------------------------
+# check startup items
+#------------------------------------------------------------
+#
+#
+PERIOD="10"
+DIRS="/Library/LaunchAgents /Library/LaunchDaemons /Library/StartupItems"
+
+
+echo "     D(start): Changes in startup during the last 10 days"
+while read dir; do
+  r=`find "${dir}" -type f -mtime -${PERIOD}  | wc -l`
+  if [ ${r} -gt 0 ]; then
+    echo -e "    ${yellow}*** WARNING: ${r} new item(s) in ${dir}${foreground}"
+    nok=1
+  fi
+done <<EOT
+/Library/LaunchAgents
+/Library/LaunchDaemons
+/Library/StartupItems
+EOT
+
+#
+# HINT: 
+# defaults read /Library/LaunchAgents/com.microsoft.update.agent.plist
+# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.apsd.plist
+# find /var/db/com.apple.xpc.launchd/ -type f -print -exec defaults read {} \; 2>/dev/null

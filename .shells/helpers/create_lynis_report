@@ -1,0 +1,17 @@
+#-------------------------------------------------------------
+# Create lynis report
+#------------------------------------------------------------
+# normally runs via cron
+
+dREPORTS="~/.reports"
+dLYNIS="/usr/local/bin/lynis"
+LYNISREPORT="/var/log/lynis.report"
+MYREPORT="${dREPORTS}/lynis-warnings.rep"
+
+if [ ! -d "${dREPORTS}" ]; do mkdir -p "${dREPORTS}"; done
+
+sudo ${dLYNIS}/lynis audit system > ${LYNISREPORT}
+
+sudo cat ${LYNISREPORT} | egrep "\!" > ${MYREPORT}
+sudo chown rcc. ${MYREPORT}
+sudo chmod 600 ${MYREPORT}

@@ -1,0 +1,8 @@
+#-------------------------------------------------------------
+# check listeners
+#------------------------------------------------------------
+#
+#
+declare -a LISTENERS
+
+echo -e "    Listeners: ${green} `lsof -i -n -P | grep LISTEN | grep -v 127.0.0.1 | wc -l | tr -d ' '` ${magenta}[`lsof -i -n -P | grep LISTEN | grep -v 127.0.0.1 | awk '{print $1}' | sort | uniq | tr '\n' ' '`] ${foreground}"

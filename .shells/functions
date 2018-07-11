@@ -1,0 +1,63 @@
+#-------------------------------------------------------------
+# Functions
+#------------------------------------------------------------
+#
+
+#-------------------------------------------------------------
+# File & string-related functions:
+#-------------------------------------------------------------
+# Find a file with a pattern in name:
+function ff() { find . -type f -iname '*'$*'*' -ls ; }
+
+# Find a file with pattern $1 in name and Execute $2 on it:
+function fef() { find . -type f -iname '*'${1:-}'*' -exec ${2:-file} {} \;  ; }
+
+# Find big files in $1 directory
+function fbf() { d="$1"; if [ ! -d ${d} ]; then d="."; fi; find $d -size +5M -ls | sort -nr -k 7; }
+
+
+# unarchiver function
+# - expects: compressed filename
+#
+function extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)       tar xjf $1;;
+            *.tar.gz)        tar xzf $1;;
+            *.bz2)           bunzip2 $1;;
+            *.rar)           rar x $1;;
+            *.gz)            gunzip $1;;
+            *.tar)           tar xf $1;;
+            *.tbz2)          tar xjf $1;;
+            *.tgz)           tar xzf $1;;
+            *.zip)           unzip $1;;
+            *.Z)             uncompress $1;;
+            *)               echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+
+#
+# Grepping process name
+# - expects: string as process name
+#
+function psg() {
+    if [ ! -z $1 ] ; then
+        echo "Grepping for processes matching $1..."
+        ps aux | grep $1
+    else
+        echo "!! Need name to grep for"
+    fi
+}
+
+# Required for the prompt to show git status
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}

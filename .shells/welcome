@@ -1,0 +1,59 @@
+#-------------------------------------------------------------
+# Welcome message
+#------------------------------------------------------------
+#
+black="\033[0;38;5;0m"
+red="\033[0;38;5;1m"
+orange="\033[0;38;5;130m"
+green="\033[0;38;5;2m"
+yellow="\033[0;38;5;3m"
+blue="\033[0;38;5;4m"
+bblue="\033[0;38;5;12m"
+magenta="\033[0;38;5;55m"
+cyan="\033[0;38;5;6m"
+white="\033[0;38;5;7m"
+coldblue="\033[0;38;5;33m"
+smoothblue="\033[0;38;5;111m"
+iceblue="\033[0;38;5;45m"
+turqoise="\033[0;38;5;50m"
+smoothgreen="\033[0;38;5;42m"
+
+foreground=${white}
+
+
+#
+# User Info
+export FULLNAME="Rocco Gagliardi"
+export NICKNAME="rcc"
+
+COLS=`tput cols`
+LINES=`tput lines`
+
+SEP=`printf '%*s' ${COLS} | tr ' ' "-"`
+
+#------------------------------------------------------------
+# Messages
+#------------------------------------------------------------
+clear
+echo -e ${smoothgreen}${SEP}${foreground}
+echo -ne "Good Morning, ${smoothgreen}${NICKNAME}${foreground}! It's "; date '+%A, %B %-d %Y'
+echo -e ${smoothgreen}${SEP}${foreground}
+echo " Settings:"
+source ".shells/security/check_gatekeeper"
+source ".shells/security/check_pf"
+source ".shells/security/check_hosts"
+source ".shells/security/check_listeners"
+source ".shells/security/check_startupItems"
+source ".shells/security/check_reports"
+
+
+echo
+echo
+echo -e "REM:"
+echo -e "  ${yellow}Use cheat <command> to obtain cheat-sheet for command.${foreground}"
+
+# 
+# disable captive portal:
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control Active -bool false
+#
+# 

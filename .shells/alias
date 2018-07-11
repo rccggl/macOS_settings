@@ -1,0 +1,80 @@
+#-------------------------------------------------------------
+# Customizing some commands
+#------------------------------------------------------------
+alias mgrep='grep -irHa --color=always'
+
+
+#-------------------------------------------------------------
+# Some self-protection
+#------------------------------------------------------------
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# typos
+alias xs='cd'
+alias vf='cd'
+alias moer='more'
+alias moew='more'
+alias kk='ll'
+
+
+
+
+
+#-------------------------------------------------------------
+# The 'ls' family (this assumes you use a recent GNU ls)
+#-------------------------------------------------------------
+alias l='ls -CF'
+alias la='ls -A'
+alias la='ls -Al'          # show hidden files
+alias lal='ls -alh'
+alias lc='ls -ltcr'        # sort by and show change time, most recent last
+alias lk='ls -lSr'         # sort by size, biggest last
+alias ll='ls -lh'
+alias ll='ls -lisa'
+alias lm='ls -al |more'    # pipe through 'more'
+alias lr='ls -lR'          # recursive ls
+alias lt='ls -ltr'         # sort by date, most recent last
+alias lu='ls -ltur'        # sort by and show access time, most recent last
+
+
+
+
+
+#-------------------------------------------------------------
+# The pf
+#-------------------------------------------------------------
+alias pf.load='sudo pfctl -e -f /etc/pf.rccmbp.conf'
+alias pf.unload='sudo pfctl -d'
+alias pf.chkcfg='sudo pfctl -n'
+alias pf.show='sudo pfctl -vvsr'
+alias pf.showrule='sudo pfctl -vvsr | grep @'
+alias pf.showall='sudo pfctl -s all'
+alias pf.info='sudo pfctl -s info'
+alias pf.status='sudo pfctl -s info | grep Status'
+alias pf.logon='sudo ifconfig pflog0 create'
+alias pf.logoff='sudo ifconfig pflog0 destroy'
+alias pf.logsnoop='ifconfig | grep pflog0 && sudo tcpdump -i pflog0 -n -e -tttt -s 0 -q -l'
+alias pf.lognav='ifconfig | grep pflog0 && sudo tcpdump -i pflog0 -n -e -tttt -s 0 -q -l | lnav'
+alias pf.log='cat /var/log/pf.log'
+alias pf.launch='sudo launchctl load /Library/LaunchDaemons/ch.scip.rccmbp.pf.plist'
+alias pf.ground='sudo launchctl unload /Library/LaunchDaemons/ch.scip.rccmbp.pf.plist'
+
+
+
+
+#-------------------------------------------------------------
+# The 'ls' family (this assumes you use a recent GNU ls)
+#-------------------------------------------------------------
+alias fore.bluetooth='sudo less /Library/Preferences/com.apple.Bluetooth.plist'
+
+
+
+
+
+#-------------------------------------------------------------
+# Some jokes
+#-------------------------------------------------------------
+alias yum='echo ".!.. macOS!!!"'
+alias apt='echo ".!.. macOS!!!"'

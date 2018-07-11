@@ -1,0 +1,7 @@
+#-------------------------------------------------------------
+# Hosts aliases
+#------------------------------------------------------------
+#  add aliases in form of:
+#  alias <host alias>="ssh -i ~/.ssh/key.priv user@host.domain.local"
+
+

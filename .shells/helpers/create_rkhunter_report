@@ -1,0 +1,16 @@
+#-------------------------------------------------------------
+# Create rkhunter report
+#------------------------------------------------------------
+# normally runs via cron
+
+dREPORTS="~/.reports"
+RKHUNTER="/usr/local/bin/rkhunter"
+RKHUNTERREPORT="/var/log/rkhunter.log"
+MYREPORT="${dREPORTS}/rkhunter-warnings.rep"
+
+if [ ! -d "${dREPORTS}" ]; do mkdir -p "${dREPORTS}"; done
+sudo ${RKHUNTER} --check --rwo
+
+sudo cat ${RKHUNTERREPORT} | egrep "Warning:" > ${MYREPORT}
+sudo chown rcc. ${MYREPORT}
+sudo chmod 600 ${MYREPORT}

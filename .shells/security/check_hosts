@@ -1,0 +1,13 @@
+#-------------------------------------------------------------
+# check hosts for redirections of maliciuous hosts
+#------------------------------------------------------------
+#
+#
+echo -e "   /etc/hosts: entries=${green} `cat /etc/hosts | wc -l | tr -d ' '` ${magenta}[Last update: `grep -m1 '# Date: ' /etc/hosts | tr -d '#Date:\n'`] ${foreground} (to update use: maliciuous_hosts_update)" 
+
+#
+# Use the hosts file to block known malware, advertising or otherwise unwanted domains.
+# For hosts lists, see someonewhocares.org, l1k/osxparanoia/blob/master/hosts, StevenBlack/hosts and gorhill/uMatrix/hosts-files.json.
+# curl "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" | sudo tee -a /etc/hosts
+#
+alias maliciuous_hosts_update='curl "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" | sudo tee /etc/hosts'

@@ -1,0 +1,42 @@
+#-------------------------------------------------------------
+# Git section
+#------------------------------------------------------------
+#
+# The modifications stashed away by this command can be listed with git stash list, inspected with git stash 
+# show, and restored (potentially on top of a different commit) with git stash apply. Calling git stash without 
+# any arguments is equivalent to git stash push. A stash is by default listed as "WIP on branchname …​", but you 
+# can give a more descriptive message on the command line when you create one.
+# 
+# Show the changes recorded in the stash entry as a diff between the stashed contents and the commit back 
+# when the stash entry was first created. When no <stash> is given, it shows the latest one. By default, 
+# the command shows the diffstat, but it will accept any format known to git diff (e.g., git stash show -p stash@{1} to 
+# view the second most recent entry in patch form). You can use stash.showStat and/or stash.showPatch config 
+# variables to change the default behavior.
+function show-stash() {
+    git stash show -p stash@{$1};
+}
+
+function stash-len() {
+    git stash list | wc -l;
+}
+
+function drop-stash() {
+    git stash drop stash@{$1};
+}
+
+
+
+#-------------------------------------------------------------
+# aliases
+#------------------------------------------------------------
+alias gita='git add'
+alias gitb='git br'
+alias gitd='git diff'
+alias gitdc='git diff --cached'
+alias gitl='git log'
+alias gitp='git pull'
+alias gits='git status'
+alias gitst='git stash'
+alias gitplo='git pull origin master'
+alias gitbv='git branch -vv'
+alias gitdmno='git diff master  --name-only'

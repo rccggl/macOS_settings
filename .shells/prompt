@@ -1,0 +1,37 @@
+#-------------------------------------------------------------
+# Prompt
+#------------------------------------------------------------
+#
+black="\033[0;38;5;0m"
+red="\033[0;38;5;1m"
+orange="\033[0;38;5;130m"
+green="\033[0;38;5;2m"
+yellow="\033[0;38;5;3m"
+blue="\033[0;38;5;4m"
+bblue="\033[0;38;5;12m"
+magenta="\033[0;38;5;55m"
+cyan="\033[0;38;5;6m"
+white="\033[0;38;5;7m"
+coldblue="\033[0;38;5;33m"
+smoothblue="\033[0;38;5;111m"
+iceblue="\033[0;38;5;45m"
+turqoise="\033[0;38;5;50m"
+smoothgreen="\033[0;38;5;42m"
+
+
+
+
+#
+# bunch of prompts
+#
+GREP="/usr/bin/grep"
+SED="/usr/bin/sed"
+
+PS1="\n\[\e[30;1m\]\[\016\]l\[\017\](\[\e[34;1m\]\u@\h\[\e[30;1m\])-(\[\e[34;1m\]\j\[\e[30;1m\])-(\[\e[34;1m\]\@ \d\[\e[30;1m\])->\[\e[30;1m\]\n\[\016\]m\[\017\]-(\[\[\e[32;1m\]\w\[\e[30;1m\])-(\[\e[32;1m\]\$(/bin/ls -1 | /usr/bin/wc -l | ${SED} 's: ::g') files, \$(/bin/ls -lah | ${GREP} -m 1 total | ${SED} 's/total //')b\[\e[30;1m\])--> \[\e[0m\]"
+PS1="\n\[\e[32;1m\](\[\e[37;1m\]\u\[\e[32;1m\])-(\[\e[37;1m\]jobs:\j\[\e[32;1m\])-(\[\e[37;1m\]\w\[\e[32;1m\])\n(\[\[\e[37;1m\]! \!\[\e[32;1m\])-> \[\e[0m\]"
+PS1="[\[\033[32m\]\w]\[\033[0m\]\n\[\033[1;36m\]\u\[\033[1;33m\]-> \[\033[0m\]"
+
+# multiline prompt
+# PS1="\n\[\033[35m\]\$(/bin/date)\n\[\033[32m\]\w\n\[\033[1;31m\]\u@\h: \[\033[1;34m\]\$(/usr/bin/tty | ${SED} -e 's:/dev/::'): \[\033[1;36m\]\$(/bin/ls -1 | /usr/bin/wc -l | ${SED} 's: ::g') files \[\033[1;33m\]\$(/bin/ls -lah | ${GREP} -m 1 total | ${SED} 's/total //')b\[\033[0m\] -> \[\033[0m\]"
+# PS1="\n${magenta}\$(/bin/date)\n${green}\w\n${cyan}\u@\h: ${yellow}\$(/usr/bin/tty | ${SED} -e 's:/dev/::'): ${red}\$(/bin/ls -1 | /usr/bin/wc -l | ${SED} 's: ::g')f|\$(/bin/ls -lah | ${GREP} -m 1 total | ${SED} 's/total //')b${red} -> ${white}"
+PS1="\n${green}\$(/bin/ls -1 | /usr/bin/wc -l | ${SED} 's: ::g')f|\$(/bin/ls -lah | ${GREP} -m 1 total | ${SED} 's/total //')b ${iceblue}\w\n${cyan}\u@\h: ${yellow}\$(/usr/bin/tty | ${SED} -e 's:/dev/::'): > ${white}"

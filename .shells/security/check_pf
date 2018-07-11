@@ -1,0 +1,11 @@
+#-------------------------------------------------------------
+# check pf firewall status
+#------------------------------------------------------------
+#
+#
+rules=$(sudo pfctl -s rules 2>/dev/null | wc -l | tr -d ' ')
+pass=$(sudo pfctl -s rules 2>/dev/null | grep pass | wc -l | tr -d ' ')
+block=$(sudo pfctl -s rules 2>/dev/null | grep block | wc -l | tr -d ' ')
+log=$(sudo pfctl -s rules 2>/dev/null | grep log | wc -l | tr -d ' ')
+
+echo -e "           pf: ${magenta}rules=${rules} ${green}pass=${pass} ${red}block=${block} ${yellow}log=${log} ${foreground}"

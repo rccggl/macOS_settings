@@ -1,0 +1,26 @@
+#-------------------------------------------------------------
+# PATH
+#------------------------------------------------------------
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+
+
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+
+
+
+#-------------------------------------------------------------
+# PATH
+#------------------------------------------------------------
+# ActiveGo Installer addition on 2017-11-08_at_08:02:46: adding appropriate PATH and GOPATH variables for use with ActiveGo.
+export PATH="/usr/local/ActiveGo-1.8.3/bin:/Users/rcc/ActiveGo/bin:/usr/local/ActiveGo-1.8.3/gopath/bin:$PATH"
+export GOPATH="/Users/rcc/ActiveGo:/usr/local/ActiveGo-1.8.3/gopath"
+# End of ActiveGo environment
+
+
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"

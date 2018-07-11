@@ -1,0 +1,20 @@
+#-------------------------------------------------------------
+# Bash exports
+#------------------------------------------------------------
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+export HISTCONTROL=ignoreboth
+export HISTIGNORE='&:clear:ls:cd:[bf]g:exit:[ t\]*'
+
+export EDITOR='vim' ALTERNATE_EDITOR='emacs' VISUAL='vim'
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+
+
+#-------------------------------------------------------------
+# PROXY
+#------------------------------------------------------------
+export http_proxy=
+export https_proxy=
+export ftp_proxy=
+
